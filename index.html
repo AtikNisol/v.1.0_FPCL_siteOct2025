@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СЗСЖ</title>
+    <link rel="icon" href="untitled.ico" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            font-size: 22px;
+            color: white;
+            background-color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 2s ease, left 2s ease, top 2s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <a href="#" class="button">СКОРО СТАТЬЯ</a>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const button = document.querySelector(".button");
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            const radius = 500;
+
+            button.addEventListener("click", () => {
+                const angle = Math.random() * 2 * Math.PI; // Random angle
+                const randomX = centerX + radius * Math.cos(angle) - button.offsetWidth / 2;
+                const randomY = centerY + radius * Math.sin(angle) - button.offsetHeight / 2;
+
+                button.style.transform = `translate(${randomX - button.offsetLeft}px, ${randomY - button.offsetTop}px)`;
+                button.style.left = `${randomX}px`;
+                button.style.top = `${randomY}px`;
+            });
+        });
+    </script>
+</body>
+</html>
